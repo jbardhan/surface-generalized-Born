@@ -1,9 +1,22 @@
 # surface-generalized-Born
 
+## To do
+
+1. Documentation
+
+   - foo
+   
+2. MATLAB codes
+
+3. Geometries
+
+
 ## Introduction
 
-This is a curated set of MATLAB codes and data files from papers related to
-FFTSVD, BIBEE, and SLIC. Key references are given below.  The MATLAB codes are included as Git submodules, and the geometries are included here explicitly
+This is a curated set of MATLAB codes and data files from papers
+related to FFTSVD, BIBEE, and SLIC. Key references are given below.
+The MATLAB codes are included as Git submodules, and the geometries
+are included here explicitly
 
 ## Installation and Quick start
 
