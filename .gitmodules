@@ -4,3 +4,6 @@
 [submodule "pointbem"]
 	path = pointbem
 	url = git@github.com:jbardhan/pointbem
+[submodule "bb-matlab-analytical-nonlocal-sphere"]
+	path = bb-matlab-analytical-nonlocal-sphere
+	url = git@github.com:jbardhan/bb-matlab-analytical-nonlocal-sphere.git
