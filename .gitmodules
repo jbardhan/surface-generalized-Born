@@ -1,0 +1,6 @@
+[submodule "panelbem"]
+	path = panelbem
+	url = git@github.com:jbardhan/panelbem
+[submodule "pointbem"]
+	path = pointbem
+	url = git@github.com:jbardhan/pointbem
