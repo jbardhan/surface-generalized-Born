@@ -1,0 +1,84 @@
+### Load pdb
+
+mol new bpti_3btk_prepared_mona_take2.pdb
+
+### generate psf
+package require psfgen
+topology top_all27_prot_lipid_more.rtf
+
+segment V {
+pdb bpti_3btk_prepared_mona_take2.pdb
+first ace
+last ct3
+}
+patch DISU V:505 V:555
+patch DISU V:514 V:538
+patch DISU V:530 V:551
+coordpdb bpti_3btk_prepared_mona_take2.pdb V
+guesscoord
+
+writepsf bpti_capped.psf
+writepdb bpti_capped.pdb
+
+package require Orient
+namespace import Orient::orient
+
+set asdf [mol new bpti_capped.pdb]
+set sel [atomselect top "all"]
+
+set I [draw principalaxes $sel]
+set A [orient $sel [lindex $I 2] {0 0 1}]
+$sel move $A
+set I [draw principalaxes $sel]
+set A [orient $sel [lindex $I 1] {0 1 0}]
+$sel move $A
+set I [draw principalaxes $sel]
+
+
+set mm [measure minmax $sel]
+set lower [lindex $mm 0]
+set upper [lindex $mm 1]
+set c1 [expr "([lindex $lower 0] + [lindex $upper 0])/2.0"]
+set c2 [expr "([lindex $lower 1] + [lindex $upper 1])/2.0"]
+set c3 [expr "([lindex $lower 2] + [lindex $upper 2])/2.0"]
+set c [expr "{$c1 $c2 $c3}"]
+$sel moveby [vecscale -1 $c]
+
+$sel writepdb bpti_capped.pdb
+mol delete $asdf
+
+quit
+
+
+package require solvate
+solvate bpti_capped.psf bpti_capped.pdb -minmax { {-20.0 -20.0 -20.0 } { 20.0 20.0 20.0 } } -o bpti_solvated
+
+### beta
+
+set mol1 [mol new bpti_capped.pdb]
+set sel1 [atomselect $mol1 "not water"]
+
+set mol2 [mol new bpti_solvated.pdb]
+set sel2 [atomselect $mol2 "not water"]
+
+$sel2 set beta [$sel1 get occupancy]
+set all [atomselect $mol2 "all"]
+$all writepdb bpti_solvated.pdb
+
+### box size
+
+set outfile [open bpti_boxinfo.txt w]
+puts $outfile "Center:"
+puts $outfile [measure center $all]
+puts $outfile "Size:"
+set foo [measure minmax $all]
+set lower [lindex $foo 0]
+set upper [lindex $foo 1]
+puts $outfile [expr "[lindex $upper 0] - [lindex $lower 0]"]
+puts $outfile [expr "[lindex $upper 1] - [lindex $lower 1]"]
+puts $outfile [expr "[lindex $upper 2] - [lindex $lower 2]"]
+
+mol delete $mol1
+mol delete $mol2
+
+quit
