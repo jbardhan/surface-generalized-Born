@@ -2,13 +2,19 @@
 
 ## To do
 
-1. Documentation
+1. MATLAB codes
 
-   - foo
-   
-2. MATLAB codes
+2. Geometries
+   - `born-ion`:
+   - `arg`:
+   - `spherical-protein`:
+     - foo
+   - `bpti`:
+     - run updated VMD script (no longer using top_titr.inp) to create new PDB file
+     - use `molman` scripts to generate PQR for others to see radii
+     - use `FFTSVD/meshmaker` to generate a mesh
 
-3. Geometries
+3. Documentation
 
 
 ## Introduction
