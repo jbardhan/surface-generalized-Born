@@ -12,7 +12,7 @@
    - `arg`:
      - needs a PQR file before this case can be run in MATLAB/Octave
    - `bpti`:
-     - run updated VMD script (no longer using top_titr.inp) to create new PDB file
+     - run updated VMD script (no longer using top_titr.inp) to create new PDB file.  Does the VMD script need to be run at all?  There are some disulfide bonds but those were probably already included in Radhakrishnan lab structure included here.
      - use `molman` scripts to generate PQR for others to see radii
      - use `FFTSVD/meshmaker` to generate a mesh
 
