@@ -131,9 +131,10 @@ in a separate file, not included here.)
 
 The simplest possible case of solvation electrostatics is the Born
 ion, an atom-sized sphere with a single point charge inside at the
-center. This directory holds files from our Bardhan and Knepley (2014)
-introduction of the SLIC nonlinear boundary condition model.  There
-are three classes of files:
+center. Due to symmetry, this case can hide certain kinds of
+mathematical errors or numerical algorithm bugs.  This directory holds
+files from our Bardhan and Knepley (2014) introduction of the SLIC
+nonlinear boundary condition model.  There are three classes of files:
 
 - `.srf` files: These are named `born_1A_X.srf` where `X` is the
   discretization parameter given to `meshmaker` (in our `fftsvd`
@@ -154,6 +155,26 @@ are three classes of files:
   these, so they can't just be moved around without care.
 
 #### Spherical-protein
+
+After the Born ion type of problem, the next more challenging set of
+examples can be obtained by looking at a spherical molecule with
+off-center charges.  This directory holds our example of a spherical
+protein of 24 Angstrom in radius, with the charge distribution taken
+from the protein BPTI (bovine pancreatic trypsin inhibitor).  This
+example was used in Bardhan, Knepley, and Brune (BKB). Currently the
+directory only holds three files:
+
+- `bpti.pdb` is some prepared version of the BPTI structure. Details
+  on the structure preparation should be in the BKB paper.
+
+- `bpti.pqr` is the PQR version of the `.pdb` file.
+
+- `figureBpti.m` is the MATLAB script used to generate the figure in
+  BKB.  It has not been tested in a long time, and will surely need
+  editing to run in the current repo, with up-to-date versions of the
+  `bb-matlab-analytical-nonlocal` repo and others.
+
+
 
 #### Arg
 
