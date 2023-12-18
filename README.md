@@ -5,10 +5,12 @@
 1. MATLAB codes
 
 2. Geometries
+   - GENERAL: all my dielectric boundaries are currently meshed as molecular (solvent-excluded) surfaces. I'll need to re-mesh these and create new `.srf` files for the van der Waals surfaces of interest (union of balls).
    - `born-ion`:
-   - `arg`:
    - `spherical-protein`:
-     - foo
+     - test `figureBpti.m`
+   - `arg`:
+     - needs a PQR file before this case can be run in MATLAB/Octave
    - `bpti`:
      - run updated VMD script (no longer using top_titr.inp) to create new PDB file
      - use `molman` scripts to generate PQR for others to see radii
@@ -179,8 +181,22 @@ directory only holds three files:
 #### Arg
 
 This comes from our earlier `testasymmetry` repo whose origin goes
-back to Bardhan and Knepley (2014).
+back to Bardhan and Knepley (2014).  There are three kinds of files in
+this directory currently.
 
+- `arg.pdb` is the prepared molecular structure of an arginine
+  residue, with neutral blocking (aka capping) groups at the N and C
+  termini.  Details of the preparation process are in the paper.
+
+- `arg_X_Y.srf` are the surface description files, where `X` denotes
+  which `radii.siz` file was used and `Y` denotes the surface
+  discretization level (again, in vertices per square Angstrom).
+
+- `.vert` and `.face` files that describe the triangular meshes for
+  each `.srf` file.
+
+I need to add a PQR file for this to be usable in Matlab; have added a
+note to that effect in the TO DO section.
 
 #### BPTI (bovine pancreatic trypsin inhibitor)
 
