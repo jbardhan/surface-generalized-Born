@@ -131,7 +131,27 @@ in a separate file, not included here.)
 
 The simplest possible case of solvation electrostatics is the Born
 ion, an atom-sized sphere with a single point charge inside at the
-center.  
+center. This directory holds files from our Bardhan and Knepley (2014)
+introduction of the SLIC nonlinear boundary condition model.  There
+are three classes of files:
+
+- `.srf` files: These are named `born_1A_X.srf` where `X` is the
+  discretization parameter given to `meshmaker` (in our `fftsvd`
+  package, not included in this repo for now but available at GitHub,
+  see link elsewhere in this file).  This discretization parameter is
+  in turn passed to Michael Sanner's `msms` package (put link here)
+  which generates a triangular surface mesh with `X` vertices per
+  square Angstrom.
+
+- `.m` files: MATLAB scripts.  I haven't tested these since creating
+  this repository so they will likely need paths edited, additional
+  MATLAB functions may be needed, and certain calling semantics may be
+  out of date due to changes in the `panelbem` and `pointbem` repos
+  since these were originally written.
+
+- `meshes/` subdirectory holds the `.vert` and `.face` files
+  referenced by the `.srf` files.  Note that we use relative paths in
+  these, so they can't just be moved around without care.
 
 #### Spherical-protein
 
