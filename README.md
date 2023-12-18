@@ -198,10 +198,27 @@ this directory currently.
 I need to add a PQR file for this to be usable in Matlab; have added a
 note to that effect in the TO DO section.
 
+
 #### BPTI (bovine pancreatic trypsin inhibitor)
 
 This atomistic model of a protein comes from Molavi Tabrizi, Bardhan,
-Cooper et al. (2017).  
+Cooper et al. (2017).   There are currently three files in this directory:
+
+- `bpti_3btk_prepared_mona_take2.pdb`: Taken from Kreienkamp et al
+  (2013).  Mala Radhakrishnan's lab prepared this structure for a
+  separate paper and my lab used it for Molavi Tabrizi 2017.
+
+- `build_bpti.vmd`: the VMD script to turn the above PDB into a PDB we
+  can use for.  (This may be redundant?  I can check on that; the
+  Molavi Tabrizi 2017 paper needed to mutate the titratable residues
+  for a particular force field I had been using for SLIC, see Bardhan
+  Knepley 2014.  However, the Radhakrishnan lab had prepared the
+  structure for standard electrostatics, as the filename indicates.)
+  Included for completeness.
+
+- `top_all27_prot_lipid_more.rtf`: the topology file VMD will need, if
+  one needs to run the `.vmd` script.
+
 
 ## References
 
@@ -236,3 +253,6 @@ matical Biology, v. 3 (2015).
 tinuum Biomolecule Electrostatic Problems Using the Linearized Poisson{Boltzmann Equation
 with Curved Boundary Elements," Journal of Computational Chemistry, v. 30(1), 132-153
 (2009).
+- A. B. Kreienkamp, L. Y. Liu, M. S. Minkara, M. G. Knepley, J. P. Bardhan, M. L. Radhakr-
+ishnan. "Analysis of fast boundary-integral approximations for modeling electrostatic contri-
+butions of molecular binding," Molecular Based Mathematical Biology, v. 1:124150 (2013).
