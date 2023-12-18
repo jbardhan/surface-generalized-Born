@@ -56,10 +56,58 @@ implements a BEM that uses planar triangles to discretize the
 molecular surface, piecewise constant basis functions on each
 triangle, and centroid collocation.
 
+##### The `bb-matlab-analytical-nonlocal` Repository
+
+This repository comes from our work developing a series solution to
+Hildebrandt's boundary-integral formulation of a simple nonlocal
+continuum model for solvation electrostatics (Bardhan, Knepley, Brune).
+
 
 ### Geometries
 
+#### File types
+
+This list is not necessarily exhaustive of what's in the
+repository. Please file issues if you spot missing descriptions or if
+you have questions!
+
+1. `.pdb` files:
+
+2. `.pqr` files:
+
+3. `.srf` files:
+
+4. `.xyzr` files:
+
+5. `.vert` and `.face` files: We generate surface meshes of molecular
+(solvent-excluded) surfaces, solvent-accessible surfaces, and van der
+Waals surfaces using the `msms` software package and the `meshmaker`
+program from our `fftsvd` package for full BEM simulation of large
+molecules ([GitHub link](https://github.com/jbardhan/fftsvd))
+
+6. `.siz` files: These are files that hold the atomic radii for the
+named force field.  There are many different force field variants,
+hence the number of radii.siz files.  Included for completeness.
+
+7. `.vmd` files: These are scripts for the VMD software, used to
+prepare structures for calculation or visualization.  Included for
+completeness.
+
+8. `.rtf` files: These "topology" files used by molecular dynamics
+software such as CHARMM and NAMD describe the chemical connectivity of
+different molecules, the types of atoms in them, and so forth.  (The
+complete physics description requires a set of parameters defining
+chemical interactions between molecules, such as the "effective spring
+constants" between atoms of different types; such parameters are given
+in a separate file, not included here.)
+
+
+
 #### Born-ion
+
+The simplest possible case of solvation electrostatics is the Born
+ion, an atom-sized sphere with a single point charge inside at the
+center.  
 
 #### Spherical-protein
 
@@ -96,3 +144,10 @@ nonlinear boundary conditions," Journal of Chemical Physics (Communication), v. 
 J. P. Bardhan. "Extending the solvation-layer interface condition (SLIC) continuum elec-
 trostatic model to linearized Poisson{Boltzmann solvent," Journal of Chemical Theory and
 Computation (2017).
+- J. P. Bardhan. "Nonlocal Continuum Electrostatic Theory Predicts Surprisingly Small En-
+ergetic Penalties for Charge Burial in Proteins," Journal of Chemical Physics, v. 135:104113
+(2011).
+- J. P. Bardhan, M. G. Knepley, P. Brune. "Nonlocal Electrostatics in Spherical Geometries
+Using Eigenfunction Expansions of Boundary-Integral Operators," Molecular Based Mathe-
+matical Biology, v. 3 (2015).
+- A. Hildebrandt, PhD Thesis.
